@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="bootstrap-layout">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="noindex">
+
+
+  <title>Квесты</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <script src="assets/css/bootstrap.bundle.min.js"></script>
+  <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="examples/css/morris.min.css">
+  <link rel="stylesheet" href="examples/css/sweetalert.min.css">
+
+  <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css">
+  <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css">
+
+
+  <script src="assets/vendor/jquery.min.js"></script>
+
+
+  <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+
+</head>
+
+<body class="layout-container ls-top-navbar si-l3-md-up">
+  <nav class="navbar navbar-light bg-white navbar-full navbar-fixed-top ls-left-sidebar">
+    <button class="navbar-toggler pull-xs-left hidden-lg-up noborder" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span class="material-icons">menu</span></button>
+    <a class="navbar-brand first-child-md" href="index.html">Квесты</a>
+
+
+    <!-- // END Menu -->
+
+  </nav>
+  <!-- // END Navbar -->
+
+  <!-- Sidebar -->
+  <div class="sidebar sidebar-left si-si-3 sidebar-visible-md-up sidebar-dark bg-primary" id="sidebarLeft" data-scrollable>
+    <!-- Brand -->
+    <a href="index.html" class="sidebar-brand">
+      Квесты
+    </a>
+    <!-- User -->
+    <a href="user-profile.html" class="sidebar-link sidebar-user">
+      <img src="assets/images/people/110/guy-6.jpg" alt="user" class="img-circle" > <span  id = "firstname">Имя</span> <span  id = "lastname">Фамилия</span>
+    </a>
+    <!-- // END User -->
+    <!-- Menu -->
+    <ul class="sidebar-menu sm-bordered sm-active-button-bg">
+      <li class="sidebar-menu-item active">
+        <a class="sidebar-menu-button" href="index.html">
+          <i class="sidebar-menu-icon material-icons">home</i> Квесты
+        </a>
+
+      </li>
+
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="#">
+          <i class="sidebar-menu-icon material-icons">view_compact</i>Пройденные
+          <span class="sidebar-menu-label label label-default">0</span>
+        </a>
+        <ul class="sidebar-submenu">
+          <li class="sidebar-menu-item">
+            <a class="sidebar-menu-button" href="index.html">Default</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="#">
+          <i class="sidebar-menu-icon material-icons">view_compact</i>Купоны
+          <span class="sidebar-menu-label label label-default">0</span>
+        </a>
+        <ul class="sidebar-submenu">
+          <li class="sidebar-menu-item">
+            <a class="sidebar-menu-button" href="index.html">Default</a>
+          </li>
+        </ul>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="auth.html">
+          <i class="sidebar-menu-icon material-icons">view_compact</i>Вход/Регистрация
+        </a>
+    </li>
+    <li class="sidebar-menu-item">
+      <a class="sidebar-menu-button" id="exit_auth">
+        <i class="sidebar-menu-icon material-icons">view_compact</i>Выйти
+      </a>
+  </li>
+    <li class="sidebar-menu-item">
+      <a class="sidebar-menu-button" href="camera.html">
+        <i class="sidebar-menu-icon material-icons">view_compact</i>Камера тест
+      </a>
+     </li>
+
+     <li class="sidebar-menu-item">
+       <a class="sidebar-menu-button" id = "getPosition" >
+         <i class="sidebar-menu-icon material-icons">view_compact</i>Локация
+       </a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button"   id = "networkInfo">
+          <i class="sidebar-menu-icon material-icons">view_compact</i>Сеть
+        </a>
+       </li>
+       <li class="sidebar-menu-item">
+         <a class="sidebar-menu-button"   id = "getLanguage">
+           <i class="sidebar-menu-icon material-icons">view_compact</i>Язык
+         </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button"   id = "getLocaleName">
+            <i class="sidebar-menu-icon material-icons">view_compact</i>Страна
+          </a>
+         </li>
+         <li class="sidebar-menu-item">
+           <a class="sidebar-menu-button"   id = "getDate">
+             <i class="sidebar-menu-icon material-icons">view_compact</i>Дата
+           </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a class="sidebar-menu-button"   id = "getCurrency">
+              <i class="sidebar-menu-icon material-icons">view_compact</i>Валюта
+            </a>
+           </li>
+           <li class="sidebar-menu-item">
+             <a class="sidebar-menu-button"   id = "vibration">
+               <i class="sidebar-menu-icon material-icons">view_compact</i>Вибрация
+             </a>
+            </li>
+             <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button"   id = "vibrationPattern">
+                  <i class="sidebar-menu-icon material-icons">view_compact</i>Вибрация2
+                </a>
+               </li>
+
+
+    </ul>
+
+    <!-- // END Menu -->
+
+    <!-- Activity -->
+    <div class="sidebar-heading">Активные квесты</div>
+    <ul class="sidebar-activity">
+      <li class="media">
+        <div class="media-left">
+          <div class="sidebar-activity-icon">
+            <i class="material-icons">person</i>
+          </div>
+        </div>
+        <div class="media-body">
+          <a href="#">Название</a>  <a href="#"></a>
+          <small>0 дней назад</small>
+        </div>
+      </li>
+    </ul>
+    <!-- // END Activity -->
+
+    <!-- Stats -->
+    <div class="sidebar-stats">
+      <div class="sidebar-stats-lead text-primary">
+        <span>0</span>
+        <small class="text-success">
+          <i class="material-icons md-middle">arrow_upward</i>
+          <span class="icon-text">0%</span>
+        </small>
+      </div>
+      <small>Квестов</small>
+    </div>
+    <!-- // END Stats -->
+
+  </div>
+  <!-- // END Sidebar -->
+
+  <!-- Right Sidebars -->
+
+  <!-- Content -->
+  <div class="layout-content" data-scrollable>
+    <div class="container-fluid">
+      <!-- Row -->
+      <div class="row text-center" id="spisokkwestov">
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Было -->
+  <script src="assets/vendor/jquery.min.js"></script>
+  <script src="assets/vendor/tether.min.js"></script>
+  <script src="assets/vendor/adminplus.js"></script>
+  <script src="assets/js/colors.js"></script>
+  <script src="assets/vendor/raphael.min.js"></script>
+  <script src="assets/vendor/morris.min.js"></script>
+  <script src="examples/js/chart.js"></script>
+  <!-- Конец -->
+
+  <!-- Уведомления -->
+  <script src="assets/vendor/sweetalert.min.js"></script>
+  <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+  <script src="assets/plugins/notifications/js/notifications.js"></script>
+  <script src="assets/plugins/notifications/js/notification-custom-script.js"></script>
+  <!-- Конец -->
+
+  <!-- Мои основные функции -->
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="assets/js/telfunc.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+  <!-- Конец -->
+</body>
+
+</html>

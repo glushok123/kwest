@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.kwest" version="1.0.0"
+    xmlns="http://www.w3.org/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0">>
+    <name>Kwest</name>
+    <description>Sample Apache Cordova App</description>
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <access origin="*" />
+    <preference name="MixedContentMode" value="2" />
+    <preference name="Scheme" value="http" />
+    <preference name="AndroidXEnabled" value="true" />
+    <platform name="android">
+      <preference name="AndroidXEnabled" value="true" />
+      <resource-file src="res/google-services.json" target="app/google-services.json" />
+    </platform>
+
+
+    <!-- IOS  camera access  , for cordova camera plugin -->
+        <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need camera access to take pictures</string>
+        </edit-config>
+    <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need photo library access to get pictures from there</string>
+        </edit-config>
+    <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need location access to find things nearby</string>
+        </edit-config>
+    <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need photo library access to save pictures there</string>
+        </edit-config>
+    <preference name="CameraUsesGeolocation" value="false" />
+        <!-- Enable Geolocation for iOS , set the value to
+             true , it seems there is a problem , with geolocation
+             enabled in this plugin . -->
+    <!-- IOS  camera access  , for cordova camera plugin -->
+</widget>

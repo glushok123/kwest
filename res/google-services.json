@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "720558284706",
+    "project_id": "my-project-41319-a3c90",
+    "storage_bucket": "my-project-41319-a3c90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720558284706:android:8832000468a3c2e7ff9cfb",
+        "android_client_info": {
+          "package_name": "io.cordova.kwest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720558284706-u8fk9tg8i79dv91ho06s9ugc267ooil7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwjhwfwxP_hCY8eE0QDXwDWxCecettPC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720558284706-u8fk9tg8i79dv91ho06s9ugc267ooil7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

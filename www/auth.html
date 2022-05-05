@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="bootstrap-layout">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="noindex">
+
+  <title>Квесты</title>
+
+  <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="examples/css/morris.min.css">
+  <link rel="stylesheet" href="examples/css/sweetalert.min.css">
+  <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css">
+  <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css">
+
+
+  <script src="assets/vendor/jquery.min.js"></script>
+
+</head>
+<body class="layout-container ls-top-navbar si-l3-md-up">
+
+
+
+  <!-- Right Sidebars -->
+
+  <!-- Content -->
+  <div class="layout-content" data-scrollable>
+    <div class="container-fluid">
+      <!-- Row -->
+      <div class="row">
+        <div class="col-sm-10 col-sm-push-1 col-md-6 col-md-push-3 col-lg-6 col-lg-push-3">
+
+          <div class="card-group">
+
+            <div class="card bg-transparent user_auth">
+              <div class="card-block">
+                <div class="center">
+                  <h4 class="m-b-0"><span class="icon-text">Вход</span></h4>
+                  <p class="text-muted">Доступ к вашей учетной записи</p>
+                </div>
+                <form action="index.html" method="get">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="auth_login" placeholder="Email или телефон или логин">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="auth_passwd" placeholder="********">
+                    <a href="#" class="pull-xs-right">
+                      <small>Забыли?</small>
+                    </a>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="center">
+                    <span id="auth_prov" class="btn  btn-primary-outline btn-circle-large">
+                      <i class="material-icons">lock</i>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <div class="center">
+              <button class="btn btn-primary btn-rounded" id="show_reg">Регистрация</button>
+              </div>
+            </div>
+
+            <div class="card user_reg">
+              <div class="card-block center">
+                <h4 class="m-b-0">
+                  <i class="material-icons">person_add</i> <span class="icon-text">Регистрация</span>
+                </h4>
+                <p class="text-muted">Создайте новую учетную запись</p>
+                <form action="index.html" method="get">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="reg_login" placeholder="Логин">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="reg_email" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="phone" placeholder="Телефон">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="reg_passw" placeholder="Пароль">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="reg_passw_pov" placeholder="Повторите пароль">
+                  </div>
+                  <span id="reg_prov" class="btn btn-primary btn-rounded">Зарегистрировать</span>
+                </form>
+              </div>
+              <div class="center">
+              <button class="btn btn-primary btn-rounded" id="show_auth">Вход</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap -->
+  <script src="assets/vendor/tether.min.js"></script>
+  <script src="assets/vendor/bootstrap.min.js"></script>
+
+  <!-- AdminPlus -->
+  <script src="assets/vendor/adminplus.js"></script>
+  <script src="assets/vendor/sweetalert.min.js"></script>
+  <!-- App JS -->
+  <script src="assets/js/main.min.js"></script>
+
+  <!-- Theme Colors -->
+  <script src="assets/js/colors.js"></script>
+
+  <!-- Charts JS -->
+  <script src="assets/vendor/raphael.min.js"></script>
+  <script src="assets/vendor/morris.min.js"></script>
+
+  <!-- Initialize Charts -->
+  <script src="examples/js/chart.js"></script>
+
+
+  <!-- Initialize -->
+  <script src="examples/js/sweetalert.js"></script>
+  <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+  <script src="assets/plugins/notifications/js/notifications.js"></script>
+  <script src="assets/plugins/notifications/js/notification-custom-script.js"></script>
+  
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+
+</body>
+<script type="text/javascript">
+
+    screen.orientation.lock('landscape');
+
+    $("#show_reg").click(function(){
+        $(".user_reg").css("display","block");
+        $(".user_auth").css("display","none");
+    });
+    $("#show_auth").click(function(){
+        $(".user_auth").css("display","block");
+        $(".user_reg").css("display","none");
+    });
+    $("#auth_prov").click(function(){
+        let prov = true;
+        if ($("#auth_login").val() == ""){
+            warning_noti("Необходимо ввести логин!");
+             prov = false;
+        }
+        if ($("#auth_passwd").val() == ""){
+            warning_noti("Необходимо ввести пароль!");
+             prov = false;
+        }
+        if (prov == true){
+            api.authoriz();
+        }
+    });
+    $("#reg_prov").click(function(){
+        let prov = true;
+
+        if ($("#reg_login").val() == ""){
+            warning_noti("Необходимо ввести логин!");
+             prov = false;
+             return;
+        }
+        else {
+
+        }
+        if ($("#reg_email").val() == ""){
+            warning_noti("Необходимо ввести Почту!");
+             prov = false;
+             return;
+        }
+        if ($("#reg_phone").val() == ""){
+            warning_noti("Необходимо ввести Телефон!");
+             prov = false;
+             return;
+        }
+        if ($("#reg_passw").val() == ""){
+            warning_noti("Необходимо ввести пароль!");
+             prov = false;
+             return;
+        }
+        if ($("#reg_passw_pov").val() == ""){
+            warning_noti("Необходимо повторить пароль!");
+             prov = false;
+             return;
+        }
+        if (prov == true){
+            api.registration();
+        }
+    })
+</script>
+</html>

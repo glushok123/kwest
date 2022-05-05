@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" >
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication -tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content ="light dark">
+
+    <title>Демонстрационный плагин камеры Cordova</title>
+</head>
+
+<style media="screen">
+    *{
+        border : 0px;
+        margin : 0px;
+        padding : 0px;
+        border-radius: 0px; }
+    html{
+       box-sizing: border-box; }
+    html * , html *::after , html *::before{
+        box-sizing: inherit; }
+    body{
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+        background-color: cornsilk; }
+    h1{
+        margin: 6px 0px;
+        font-size : 28px;
+        text-align: center;
+        color : firebrick; }
+    .xmpl {
+        display: flex;
+        flex-direction: column; }
+    .xmpl .button{
+        text-align: center;
+        margin: 0px 19px 6px;
+        border : 1px solid salmon;
+        border-radius: 18px 9px;
+        color: rgb(172, 55, 123);
+        padding : 4px 0px;
+        font-family: monospace;
+        font-size : 22px;
+        background-color: white; }
+    .xmpl .button.touchStart{
+        background-color: transparent; }
+    .xmpl img , .xmpl video{
+        object-fit: contain;
+        width : 100%;
+        border : 6px solid ivory;
+        background-image: url(data:image/png;base64,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);
+        min-height: 128px;
+        margin-bottom: 12px; }
+</style>
+<body>
+    <div class="app">
+        <h1>Демонстрационный плагин для камеры Cordova</h1>
+        <div class="xmpl">
+            <div
+                class="button"
+                onouchstart="btnTouchStart(this)"
+                onouchend="btnTouchEnd( this )"
+                onclick="exampleOneClicked(this.nextElementSibling)">
+                    Изображение с камеры</div>
+            <img
+            />
+        </div>
+
+        <div class="xmpl">
+            <div
+                class="button"
+                onouchstart="btnTouchStart(это)"
+                onouchend="btnTouchEnd(это)"
+                onclick="exampleTwoClicked(this.nextElementSibling)">
+                    Изображение библиотеки фотографий</div>
+            <img
+            />
+        </div>
+<div class="xmpl">
+            <div
+                class="button"
+                onouchstart="btnTouchStart(this)"
+                ontouchend="btnTouchEnd(this)"
+                onclick="exampleThreeClicked(this.nextElementSibling)"> Всплывающее окно
+                    библиотеки фотографий Ipad </div >
+            <img
+            />
+        </div>
+<div class="xmpl">
+            <div
+                class="button"
+                onouchstart="btnTouchStart(this)"
+                ontouchend="btnTouchEnd(this)"
+                onclick="exampleFourClicked(this.nextElementSibling)">
+                    Видео из библиотеки фотографий</div>
+            <
+                элементы управления видео
+                preload="metadata"
+            />
+        </div>
+    </div>
+    <script src="cordova.js"></script>
+    <script>
+        document.addEventListener('deviceready', onDeviceReady, false);
+        let isDeviceReady = false;
+
+        function btnTouchStart(btn) {
+            btn.classList.add("touchStart");
+        }
+
+        function btnTouchEnd(btn) {
+            btn.classList.remove("touchStart");
+        }
+
+        function onDeviceReady() {
+            isDeviceReady = true;
+        }
+
+        function exampleOneClicked(img) {
+            /* Front Camera , disable save to phone ,
+                data url , quality 60 . */
+            if (isDeviceReady) {
+                let pictureOptions = {
+                    cameraDirection: Camera.Direction.FRONT,
+                    saveToPhotoAlbum: false,
+                    destinationType: Camera.DestinationType.DATA_URL,
+                    quality: 60
+                };
+
+                function fctSuccess(image) {
+                    img.src = `data:image/jpeg;base64,${image }`;
+                }
+
+                function fctFailure(errorMsg) {
+                    console.log(errorMsg);
+                }
+                navigator
+                    .camera
+                    .getPicture(fctSuccess,
+                        fctFailure,
+                        pictureOptions);
+            }
+        }
+
+        function exampleTwoClicked(img) {
+            /* Photo Library , allow Edit */
+            if (isDeviceReady) {
+                let pictureOptions = {
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                    allowEdit: true
+                };
+
+                function fctSuccess(image) {
+                    img.src = image;
+                }
+
+                function fctFailure(errorMsg) {
+                    console.log(errorMsg);
+                }
+                navigator
+                    .camera
+                    .getPicture(fctSuccess,
+                        fctFailure,
+                        pictureOptions);
+            }
+        }
+
+        function exampleThreeClicked(img) {
+            /* Photo Library , popover  */
+            if (isDeviceReady) {
+                let pictureOptions = {
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                    popoverOptions: new CameraPopoverOptions(
+                        0,
+                        200,
+                        300,
+                        400,
+                        Camera.PopoverArrowDirection.ARROW_UP,
+                        0,
+                        0)
+                };
+
+                function fctSuccess(image) {
+                    img.src = image;
+                }
+
+                function fctFailure(errorMsg) {
+                    console.log(errorMsg);
+                }
+                navigator
+                    .camera
+                    .getPicture(fctSuccess,
+                        fctFailure,
+                        pictureOptions);
+
+                function updatePopOverLocation() {
+                    let cameraPopoverHandle = new CameraPopoverHandle();
+                    let cameraPopoverOptions = new CameraPopoverOptions(
+                        100,
+                        300,
+                        300,
+                        600,
+                        Camera.PopoverArrowDirection.ARROW_DOWN,
+                        0,
+                        0);
+                    cameraPopoverHandle.setPosition(cameraPopoverOptions);
+                }
+                window.setTimeout(updatePopOverLocation, 4000);
+            }
+        }
+
+        function exampleFourClicked(vdo) {
+            /* video ,  Photo Library */
+            if (isDeviceReady) {
+                let pictureOptions = {
+                    mediaType: Camera.MediaType.VIDEO,
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+                };
+
+                function fctSuccess(video) {
+                    vdo.src = video;
+                }
+
+                function fctFailure(errorMsg) {
+                    console.log(errorMsg);
+                }
+                navigator
+                    .camera
+                    .getPicture(fctSuccess,
+                        fctFailure,
+                        pictureOptions);
+            }
+        }
+    </script>
+</body>
+</html>
